@@ -4,7 +4,7 @@ from functools import reduce
 
 with open("input.txt", 'r') as f:
     lines = f.readlines()
-    numbers = list(map(lambda x: [int(x) for x in re.findall(r"\d+", x)], lines))
+    numbers = list(map(lambda x: [int(x) for x in re.findall(r"\d+", x)], lines))[:3]
 
 memo = dict()
 
@@ -109,8 +109,8 @@ q_levels = []
 for i, blueprint in enumerate(tqdm(numbers)):
     memo = dict()
     maximum = 0
-    q = quality_level(blueprint, 0, 0, 0, 0, 1, 0, 0, 0, 24)
-    q_levels.append((i+1)*q)
+    q = quality_level(blueprint, 0, 0, 0, 0, 1, 0, 0, 0, 32)
+    q_levels.append(q)
     print(q)
 
-print(reduce(lambda x, y: x+y, q_levels))
+print(reduce(lambda x, y: x*y, q_levels))
