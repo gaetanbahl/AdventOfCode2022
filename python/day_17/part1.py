@@ -1,7 +1,7 @@
 from itertools import cycle
 # import numpy as np
 # import matplotlib.pyplot as plt
-# import random
+import random
 
 
 with open("input.txt", 'r') as f:
